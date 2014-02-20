@@ -22,7 +22,6 @@ body {
 }
 
 fieldset.scheduler-border {
-	width: 75%;
     border: 1px ridge #ddd !important;
     padding: 0 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
@@ -47,12 +46,11 @@ legend.scheduler-border {
 }
 
 .tips {
-	border-radius: 4px;
-	border:1px solid #ccc; 
-	background: #eee;
+
 	color: #888;
 	height: 35px;
-	padding:10px;
+	padding:5px;
+	margin:5px;
 }
 
 .btn-success, .btn-info, .btn-danger {
