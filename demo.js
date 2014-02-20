@@ -5,6 +5,6 @@ $(document).ready(function () {
 			$("#infoValue").fadeIn();
 	});
 		$("#testInfo").focusout(function() {
-			$("#infoValue").fadeOut(1000);
+			$("#infoValue").fadeOut(600);
 	});
 });
