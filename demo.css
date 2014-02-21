@@ -1,7 +1,7 @@
 body {
   padding-top: 80px;
   font-weight: 200;
-  background-image: url('images/background-demo.jpg');
+  /*background-image: url('images/background-demo.jpg');*/
 
 }
 @media (max-width: 979px) {
@@ -16,6 +16,12 @@ body {
 	opacity: 0.95;
 }
 
+/*
+   box-shadow:inset 1px 1px 1px 0px rgba(0, 0, 0, 0.4), 1px 1px 1px 0px rgba(255, 255, 255, 0.8);
+   border-radius:4px;
+   background:rgba(0, 0, 0, 0.1);
+
+   inset effect*/
 .row {
 	margin-right:0px;
 	margin-left:0px;
@@ -53,7 +59,11 @@ legend.scheduler-border {
 	margin:5px;
 }
 
-.btn-success, .btn-info, .btn-danger {
+.btn-success, .btn-info, .btn-danger, .btn-default {
 	margin-bottom: 5px;
-	width: 145px; /*CHECK THIS*/
+	width: 115px; /*CHECK THIS*/
+}
+
+.color-swatches .brand-warning {
+background-color: #f0ad4e;
 }
