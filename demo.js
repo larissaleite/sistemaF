@@ -4,7 +4,11 @@ $(document).ready(function () {
 	$("#testInfo").focusin(function() {
 			$("#infoValue").fadeIn();
 	});
-		$("#testInfo").focusout(function() {
+	
+	$("#testInfo").focusout(function() {
 			$("#infoValue").fadeOut(600);
 	});
+
+	$('#addExpenseSelectDate').datepicker({});/*NOT SHOWING CURRENT DATE IN BLUE */
+
 });
