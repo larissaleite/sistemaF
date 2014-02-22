@@ -1,0 +1,228 @@
+<html>
+
+<head>
+  
+  <meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="demoNewVersion.css">
+  <link rel="stylesheet" type="text/css" href="datePicker/css/datepicker3.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  
+  	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  	<script src="bootstrap/js/bootstrap.js"></script>
+  	<script src="bootstrap/js/docs.min.js"></script>
+    <script src="demo.js"></script>
+    <script src="datePicker/js/bootstrap-datepicker.js"></script>
+
+  <title>SysFinance</title>
+
+</head>
+
+<body>
+	<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-inverse navbar-static-top">
+      
+        <div class="navbar-header">
+	    <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </a>
+        <a class="navbar-brand" href="#" style="font-family: 'Indie Flower', cursive;">SysFinance</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="#">Demo</a></li>
+            <li><a href="#" target="ext">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+    </div>
+  </div><!-- /container -->
+</div><!-- /navbar wrapper -->
+
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-xs-6 col-sm-4 col-lg-4">
+
+          <ul class="list-unstyled">
+            <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">
+              <h5>Settings <i class="glyphicon glyphicon-chevron-down"></i></h5>
+              </a>
+                <ul class="list-unstyled collapse in" id="userMenu">
+                    <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Options</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Shoutbox</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-user"></i> Staff List</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-flag"></i> Transactions</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-exclamation-sign"></i> Rules</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                </ul>
+            </li>
+            <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2">
+              <h5>Reports <i class="glyphicon glyphicon-chevron-right"></i></h5>
+              </a>
+            
+                <ul class="list-unstyled collapse" id="menu2">
+                    <li><a href="#">Information &amp; Stats</a>
+                    </li>
+                    <li><a href="#">Views</a>
+                    </li>
+                    <li><a href="#">Requests</a>
+                    </li>
+                    <li><a href="#">Timetable</a>
+                    </li>
+                    <li><a href="#">Alerts</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-header">
+            <a href="#" data-toggle="collapse" data-target="#menu3">
+              <h5>Social Media <i class="glyphicon glyphicon-chevron-right"></i></h5>
+              </a>
+            
+                <ul class="list-unstyled collapse" id="menu3">
+                    <li><a href="#"><i class="glyphicon glyphicon-circle"></i> Facebook</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-circle"></i> Twitter</a></li>
+                </ul>
+            </li>
+          </ul>  
+        </div>
+
+        <div class="col-xs-12 col-md-8" id="expensesAll">
+          <h4 style="font-family: 'Indie Flower', cursive;"> Expenses </h4>              
+          
+          <div id="addExpense"> 
+            <div class="row">
+              
+              <div class="col-md-4">
+
+                  <input id="addExpenseSelectDate" type="text" class="form-control" placeholder="Date">
+                  <br>
+                  <input type="text" class="form-control" id="whatExpense" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc.">
+                  <br>
+             
+                  <div class="input-group" id="testInfo">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">R$ (BRL)</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">£ (GBP)</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">€ (EUR)</a></li>
+                          <!-- type your own??? -->
+                        </ul>
+                      </div><!-- /btn-group -->
+                      <input type="text" class="form-control" placeholder="How much?">
+                    </div><!-- /input-group -->
+                  <br>
+                  <input type="text" class="form-control" placeholder="Where did the money go?">
+                  <br>                
+                  <input type="text" class="form-control" placeholder="Where did the money come from?">
+                  <br>
+              </div>
+              
+              <div class="col-md-8">
+                <div style="margin-left:15px;">  
+                  <fieldset class="scheduler-border"><legend class="scheduler-border">Which labels do you want to add?</legend>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-success"> Leisure </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-success"> Entertainment </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-success"> Electronics </button>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-danger"> Bills </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-danger"> Tax </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-danger"> Fuel </button>
+                        </div>    
+                      </div>  
+                      <div class="col-md-4">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info"> Food </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info"> Medicine </button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info"> Cosmetic </button>
+                        </div>  
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Add label </button>
+                        </div>   
+                      </div>      
+                    </div> <!-- are the colours right??? -->
+                  </fieldset>
+
+                  <button type="button" class="btn btn-primary">Done!</button>
+
+                </div>
+              </div>  <!-- .col-md-8 -->
+              </div> <!-- .row -->
+            </div> <!-- .addExpenseForm -->
+
+
+            <div class="expensesGraphs">
+
+            </div> <!-- .expensesGraphs -->
+              
+          </div> <!-- .col-md-8 #expenseAll -->
+
+
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title"><span class="glyphicon glyphicon-plus"></span> Add label</h4>
+                </div>
+                <div class="modal-body">
+                  <input type="text" class="form-control" placeholder="Type in the label's name">
+                  <div class="color-swatches">
+                    <div class="color-swatch brand-primary"></div>
+                    <div class="color-swatch brand-success"></div>
+                    <div class="color-swatch brand-info"></div>
+                    <div class="color-swatch brand-warning"></div>
+                    <div class="color-swatch brand-danger"></div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Done</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+      </div> <!-- .row -->
+
+     <!--     <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+     <p style="font-family: 'Indie Flower', cursive;display:inline;font-size:35px;">SysFinance</p> <p>&copy; 2014</p>
+  </footer>-->
+</div> <!-- .container -->
+
+</body>
+
+</html>
