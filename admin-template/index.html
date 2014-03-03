@@ -323,16 +323,16 @@ margin-top: -42px;">
                         <div class="panel-heading">
                             <div style="text-align:center;font-weight:200;">NEW INCOME</div>
                                                       <div class="pull-right">
-                                    <button type="button" class="btn btn-default" style="padding: 0px 7px;
+                                    <button type="button" id="showHideIncome" class="btn btn-default" style="padding: 0px 7px;
 margin-top: -42px;">
                                         <span class="glyphicon glyphicon-minus"></span>
                                     </button>
                             </div>   
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="panel-body" id="panelBodyIncome">
                             
-                            <div id="addExpenseForm">
+                            <div id="addIncomeForm">
                                 <input id="addExpenseSelectDate" type="text" class="form-control" placeholder="Date">
                                 <br>
                                 <input type="text" class="form-control" id="whatExpense" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc.">
@@ -356,7 +356,7 @@ margin-top: -42px;">
                                 <br>                
                                 <input type="text" class="form-control" placeholder="Where did the money come from?">
                                 <br>
-                            </div> <!-- addExpenseForm -->    
+                            </div> <!-- addIncomeForm -->    
 
                             <a href="#" class="btn btn-default" style="width:100%;">Done!</a>
                         </div>
@@ -405,6 +405,20 @@ margin-top: -42px;">
             }
 
             $("#panelBodyExpense").fadeToggle(1000);
+
+        });
+
+        $("#showHideIncome").click(function(){
+
+            if($("#panelBodyIncome").is(':visible')) {
+                $("#showHideIncome > span").removeClass('glyphicon-minus').addClass('glyphicon-plus');
+            }
+            else{
+                $("#showHideIncome > span").removeClass('glyphicon-plus').addClass('glyphicon-minus');
+
+            }
+
+            $("#panelBodyIncome").fadeToggle(1000);
 
         });
 
