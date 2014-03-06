@@ -19,43 +19,14 @@
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+    <!-- Additional CSS -->
+    <link href="demo.css" rel="stylesheet" type="text/css">
+
 </head>
 
-<style type="text/css">
-    .navbar-static-side ul li {
-        border:#fff;
-    }
+<body>
 
-    tr {
-        background-color: #FFAEAE;
-    }
-
-    tr th {
-        background-color: #fff;
-    }
-
-    table {
-        margin-bottom: 15px;
-    }
-
-    .form-control {
-        background-color: #f5f5f5;
-    }
-
-    #welcome {
-        font-size: 20px;
-        border: 1px solid transparent;
-        padding: 5px;
-        /*border-color: #ddd;*/
-        margin-bottom: 2%;
-        overflow: hidden;
-    }
-
-</style>
-
-<body style="font-weight:200;">
-
-    <div id="wrapper" style="background-color:#fff;">
+    <div id="wrapper">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -99,7 +70,7 @@
         </nav>
         <!-- /.navbar-static-top -->
 
-        <nav class="navbar-default navbar-static-side" role="navigation" style="background-color:#fff; margin-top:15px;">
+        <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
@@ -193,8 +164,8 @@
         </nav>
         <!-- /.navbar-static-side -->
 
-        <div id="page-wrapper" style="border:#fff;min-height: 0px;">
-            <div class="row" style="margin-bottom:15px;">
+        <div id="page-wrapper">
+            <div class="row">
                 <div class="col-lg-12">
                 </div>
                 <!-- /.col-lg-12 -->
@@ -212,11 +183,11 @@
 
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading" id="recent-history-heading" style="text-align:center;font-weight:200;">RECENT HISTORY</div>
+                        <div class="panel-heading" id="recent-history-heading">RECENT HISTORY</div>
                         <!-- Table -->
-                            <table class="table" style="text-align:center;font-weight:200;">
+                            <table class="table">
                               <thead>
-                                <tr><th style="text-align:center;">Date</th><th style="text-align:center;">Item</th><th  style="text-align:center;">Value</th></tr>
+                                <tr><th>Date</th><th>Item</th><th>Value</th></tr>
                               </thead>
                               <tbody>
                                 <tr><td>01/03/2014</td><td>Harry Potter and the Half-Blood Prince</td><td>R$ 35,00</td></tr>
@@ -235,7 +206,7 @@
                         </div>
 
                     <div class="panel panel-default">
-                        <div class="panel-heading" style="text-align:center;font-weight:200;">
+                        <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> FINANCIAL SUMMARY
                             <div class="pull-right">
                                 <div class="btn-group">
@@ -275,12 +246,11 @@
                 
                 <div class="col-lg-4">
                     <div class="row">
-                        <div class="panel panel-default" style="width:80%;margin:0 auto;margin-bottom:6%;">
+                        <div class="panel panel-default panel-left">
                             <div class="panel-heading">
-                                <div style="text-align:center;font-weight:200;">NEW EXPENSE</div>
+                                <div>NEW EXPENSE</div>
                                  <div class="pull-right">
-                                        <button type="button" id="showHideExpense" class="btn btn-default" style="padding: 0px 7px;
-    margin-top: -42px;">
+                                        <button type="button" id="showHideExpense" class="btn btn-default">
                                             <span class="glyphicon glyphicon-minus"></span>
                                         </button>
                                 </div>        
@@ -320,13 +290,13 @@
                         </div>
                         <!-- /.panel -->
 
-                        <div class="panel panel-default" style="width:80%;margin:0 auto;margin-bottom:6%;">
+                        <div class="panel panel-default panel-left">
                             <div class="panel-heading">
-                                <div style="text-align:center;font-weight:200;">NEW INCOME</div>
-                                                          <div class="pull-right">
-                                        <button type="button" id="showHideIncome" class="btn btn-default" style="padding: 0px 7px;margin-top: -42px;">
+                                <div>NEW INCOME</div>
+                                    <div class="pull-right">
+                                        <button type="button" id="showHideIncome" class="btn btn-default">
                                             <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
+                                    </button>
                                 </div>   
                             </div>
                             <!-- /.panel-heading -->
@@ -364,14 +334,14 @@
                         </div>
                         <!-- /.panel -->
 
-                        <div class="panel panel-default" style="width:80%;margin:0 auto;margin-bottom:6%;">
+                        <div class="panel panel-default panel-left">
                             <div class="panel-heading">
-                                <div style="text-align:center;font-weight:200;">MONEY/CARDS REGISTRATION</div>
-                                                          <div class="pull-right">
-                                        <button type="button" id="showHideRegistration" class="btn btn-default" style="padding: 0px 7px;margin-top: -42px;">
+                                <div>MONEY/CARDS REGISTRATION</div>
+                                    <div class="pull-right">
+                                        <button type="button" id="showHideRegistration" class="btn btn-default">
                                             <span class="glyphicon glyphicon-minus"></span>
                                         </button>
-                                </div>   
+                                    </div>   
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body" id="panelBodyRegistration">
