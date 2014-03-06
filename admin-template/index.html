@@ -19,6 +19,12 @@
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+    <!-- Combobox -->
+    <link href="combobox.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap-select -->
+    <link href="bootstrap-select.css" rel="stylesheet" type="text/css">
+
     <!-- Additional CSS -->
     <link href="demo.css" rel="stylesheet" type="text/css">
 
@@ -347,6 +353,12 @@
                             <div class="panel-body" id="panelBodyRegistration">
                                 
                                 <div id="registrationForm">
+
+                                    <select class="selectpicker">
+                                        <option>Credit card</option>
+                                        <option>Money</option>
+                                    </select>
+
                                     <input type="text" class="form-control" placeholder="Credit card name">
                                     <br>
                                     <input type="text" class="form-control" placeholder="Amount available">
@@ -388,6 +400,12 @@
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
 
+    <!-- Combobox JS -->
+    <script src="combobox.js"></script>
+
+     <!-- Bootstrap-select JS -->
+    <script src="bootstrap-select.js"></script>
+
     <script type="text/javascript">
         $("#showHideExpense").click(function(){
 
@@ -416,6 +434,22 @@
             $("#panelBodyIncome").fadeToggle(200);
 
         });
+
+        $("#showHideRegistration").click(function(){
+
+            if($("#panelBodyRegistration").is(':visible')) {
+                $("#showHideRegistration > span").removeClass('glyphicon-minus').addClass('glyphicon-plus');
+            }
+            else{
+                $("#showHideRegistration > span").removeClass('glyphicon-plus').addClass('glyphicon-minus');
+
+            }
+
+            $("#panelBodyRegistration").fadeToggle(200);
+
+        });
+
+        $('.selectpicker').selectpicker();
 
     </script>
 
