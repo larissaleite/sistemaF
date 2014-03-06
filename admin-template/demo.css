@@ -65,3 +65,7 @@ table {
     margin:0 auto;
     margin-bottom:6%;
 }
+
+.bootstrap-select {
+    width: 100% !important;
+}
