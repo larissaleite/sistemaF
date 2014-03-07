@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="sysFinance">
 
 <head>
 
@@ -19,14 +19,21 @@
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
-    <!-- Combobox -->
-    <link href="combobox.css" rel="stylesheet" type="text/css">
-
     <!-- Bootstrap-select -->
     <link href="bootstrap-select.css" rel="stylesheet" type="text/css">
 
     <!-- Additional CSS -->
     <link href="demo.css" rel="stylesheet" type="text/css">
+
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>
+
+    <!-- Main Javascript file -->
+    <script src="demo.js"></script>
+
+
 
 </head>
 
@@ -264,30 +271,54 @@
                         <!-- /.panel-heading -->
                             <div class="panel-body" id="panelBodyExpense">
                                 
-                                <div id="addExpenseForm">
+                                <div id="addExpenseForm" ng-controller="addExpensesController">
                                     <input id="addExpenseSelectDate" type="text" class="form-control" placeholder="Date">
                                     <br>
                                     <input type="text" class="form-control" id="whatExpense" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc.">
                                     <br>   
                                     <div class="input-group" id="testInfo">
                                     <div class="input-group-btn">
-                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
+                                        <button type="button" class="btn btn-default">R$</button>
+
+                                     <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
                                         <ul class="dropdown-menu">
                                           <li><a href="#">R$ (BRL)</a></li>
                                           <li class="divider"></li>
                                           <li><a href="#">£ (GBP)</a></li>
                                           <li class="divider"></li>
                                           <li><a href="#">€ (EUR)</a></li>
-                                          <!-- type your own??? -->
-                                        </ul>
+                                        </ul> -->
                                       </div><!-- /btn-group -->
                                       <input type="text" class="form-control" placeholder="How much?">
                                     </div><!-- /input-group -->
                                     <br>
-                                    <input type="text" class="form-control" placeholder="Where did the money go?">
+                                    <select ng-model="expenseDestinations" style="margin-bottom:15px;width:60%;" ng-options="opt for opt in destArray">
+                                        <option></option>
+                                    </select>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="display:inline;margin-left:2px;border-color:#fff;font-size:12px;"><span class="glyphicon glyphicon-plus"></span> Add item </button>
+
                                     <br>                
                                     <input type="text" class="form-control" placeholder="Where did the money come from?">
                                     <br>
+
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                              <h4 class="modal-title"><span class="glyphicon glyphicon-plus"></span> Add Destination Item</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <input type="text" ng-model="destinationText" class="form-control" placeholder="Type in the destination">
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="button" ng-click="addToSelectBox()" class="btn btn-primary" data-dismiss="modal">Done</button>
+                                            </div>
+                                          </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                      </div><!-- /.modal -->
+
                                 </div> <!-- addExpenseForm -->    
 
                                 <a href="#" class="btn btn-default" style="width:100%;">Done!</a>
@@ -315,15 +346,16 @@
                                     <br>   
                                     <div class="input-group" id="testInfo">
                                     <div class="input-group-btn">
-                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
+                                      <button type="button" class="btn btn-default">R$</button>
+
+                                     <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
                                         <ul class="dropdown-menu">
                                           <li><a href="#">R$ (BRL)</a></li>
                                           <li class="divider"></li>
                                           <li><a href="#">£ (GBP)</a></li>
                                           <li class="divider"></li>
                                           <li><a href="#">€ (EUR)</a></li>
-                                          <!-- type your own??? -->
-                                        </ul>
+                                        </ul> -->
                                       </div><!-- /btn-group -->
                                       <input type="text" class="form-control" placeholder="How much?">
                                     </div><!-- /input-group -->
@@ -399,9 +431,6 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
-
-    <!-- Combobox JS -->
-    <script src="combobox.js"></script>
 
      <!-- Bootstrap-select JS -->
     <script src="bootstrap-select.js"></script>
