@@ -1,9 +1,34 @@
-var app = angular.module('sysFinance', ['ui.bootstrap']);
+var app = angular.module('sysFinance', []);
 
 app.controller('addExpensesController', function($scope) {
-	$scope.destArray = ['Subway', 'McDonalds'];
+	$scope.destArray = [
+		{name:'Subway'},
+		{name:'McDonalds'}	
+	];
 
-	$scope.addToSelectBox = function() {
-        $scope.destArray.push($scope.destinationText);
+	$scope.dest = $scope.destArray[0];
+
+	$scope.addToSelectBox = function(destinationText) {
+		$scope.destArray = $scope.destArray.concat([{name:destinationText}]);
+	}
+
+});
+
+app.directive('selectPicker', function() {
+	return function(scope, element, attributes){
+        element.selectpicker();
+
+        scope.$watch(function () {
+          return element[0].length;
+         }, function () {
+          element.selectpicker('rebuild');
+         }); 
+
+          // Watch for any changes from outside the directive and refresh
+        scope.$watch(function () {
+          return scope.destArray;
+         }, function () {
+          element.selectpicker('refresh');
+        }, true);
     }
 });

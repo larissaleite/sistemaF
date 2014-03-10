@@ -25,10 +25,13 @@
     <!-- Additional CSS -->
     <link href="demo.css" rel="stylesheet" type="text/css">
 
-
+        <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+         <!-- Bootstrap-select JS -->
+    <script src="bootstrap-select.js"></script>
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>
+<!--        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>-->
 
     <!-- Main Javascript file -->
     <script src="demo.js"></script>
@@ -292,7 +295,7 @@
                                       <input type="text" class="form-control" placeholder="How much?">
                                     </div><!-- /input-group -->
                                     <br>
-                                    <select ng-model="expenseDestinations" style="margin-bottom:15px;width:60%;" ng-options="opt for opt in destArray">
+                                    <select select-picker class="selectpicker" ng-model="dest" style="margin-bottom:15px;width:60%;" ng-options="opt.name for opt in destArray">
                                         <option></option>
                                     </select>
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="display:inline;margin-left:2px;border-color:#fff;font-size:12px;"><span class="glyphicon glyphicon-plus"></span> Add item </button>
@@ -313,7 +316,7 @@
                                             </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                              <button type="button" ng-click="addToSelectBox()" class="btn btn-primary" data-dismiss="modal">Done</button>
+                                              <button type="button" ng-click="addToSelectBox(destinationText)" class="btn btn-primary" data-dismiss="modal">Done</button>
                                             </div>
                                           </div><!-- /.modal-content -->
                                         </div><!-- /.modal-dialog -->
@@ -418,8 +421,7 @@
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- Page-Level Plugin Scripts - Dashboard -->
@@ -432,8 +434,7 @@
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
 
-     <!-- Bootstrap-select JS -->
-    <script src="bootstrap-select.js"></script>
+
 
     <script type="text/javascript">
         $("#showHideExpense").click(function(){
@@ -478,8 +479,7 @@
 
         });
 
-        $('.selectpicker').selectpicker();
-
+        //$('.selectpicker').selectpicker({});
     </script>
 
 </body>
