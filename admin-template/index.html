@@ -25,6 +25,9 @@
     <!-- Additional CSS -->
     <link href="demo.css" rel="stylesheet" type="text/css">
 
+      <link rel="stylesheet" type="text/css" href="datePicker/css/datepicker3.css">
+
+
         <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
          <!-- Bootstrap-select JS -->
@@ -32,6 +35,7 @@
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 <!--        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>-->
+
 
     <!-- Main Javascript file -->
     <script src="demo.js"></script>
@@ -275,7 +279,8 @@
                             <div class="panel-body" id="panelBodyExpense">
                                 
                                 <div id="addExpenseForm" ng-controller="addExpensesController">
-                                    <input id="addExpenseSelectDate" type="text" class="form-control" placeholder="Date">
+                                    
+                                    <input class="datepicker form-control" id="addExpenseSelectDate" type="text" class="form-control" placeholder="Date">
                                     <br>
                                     <input type="text" class="form-control" id="whatExpense" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc.">
                                     <br>   
@@ -322,9 +327,9 @@
                                         </div><!-- /.modal-dialog -->
                                       </div><!-- /.modal -->
 
+                                    <a href="#" class="btn btn-default" style="width:100%;">Done!</a>
                                 </div> <!-- addExpenseForm -->    
 
-                                <a href="#" class="btn btn-default" style="width:100%;">Done!</a>
                             </div>
                             <!-- /.panel-body -->
                         </div>
@@ -343,11 +348,11 @@
                             <div class="panel-body" id="panelBodyIncome">
                                 
                                 <div id="addIncomeForm">
-                                    <input id="addIncomeSelectDate" type="text" class="form-control" placeholder="Date">
+                                    <input class="datepicker form-control" id="addIncomeSelectDate" type="text" class="form-control" placeholder="Date">
                                     <br>
                                     <input type="text" class="form-control" id="whatExpense" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc.">
                                     <br>   
-                                    <div class="input-group" id="testInfo">
+                                    <div class="input-group">
                                     <div class="input-group-btn">
                                       <button type="button" class="btn btn-default">R$</button>
 
@@ -387,16 +392,41 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body" id="panelBodyRegistration">
                                 
-                                <div id="registrationForm">
+                                <div id="registrationForm" ng-controller="registrationController">
 
-                                    <select class="selectpicker">
-                                        <option>Credit card</option>
-                                        <option>Money</option>
+                                    <select class="selectpicker" ng-model="cardMoneySelect">
+                                        <option value="money">Money</option>
+                                        <option value="creditcard">Credit Card</option>
                                     </select>
 
-                                    <input type="text" class="form-control" placeholder="Credit card name">
+                                    <div ng-show="cardMoneySelect=='creditcard'">
+                                        <select class="selectpicker">
+                                            <option value="visa">Visa</option>
+                                            <option value="master">MasterCard</option>
+                                            <option value="maestro">Maestro</option>
+                                            <option value="american">American Express</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                        
+                                    <input type="text" class="form-control" placeholder="Give a name to your credit card" ng-show="cardMoneySelect=='creditcard'">
                                     <br>
-                                    <input type="text" class="form-control" placeholder="Amount available">
+
+                                    <div class="input-group">
+                                    <div class="input-group-btn">
+                                      <button type="button" class="btn btn-default">R$</button>
+
+                                     <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                          <li><a href="#">R$ (BRL)</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="#">£ (GBP)</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="#">€ (EUR)</a></li>
+                                        </ul> -->
+                                      </div><!-- /btn-group -->
+                                      <input type="text" class="form-control" placeholder="Amount available">
+                                    </div><!-- /input-group -->
                                     <br>                
                                 </div> <!-- registrationForm -->    
 
@@ -434,7 +464,7 @@
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
 
-
+    <script src="datePicker/js/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript">
         $("#showHideExpense").click(function(){
@@ -479,7 +509,10 @@
 
         });
 
-        //$('.selectpicker').selectpicker({});
+        $('.selectpicker').selectpicker({});
+
+        $('.datepicker').datepicker({});
+
     </script>
 
 </body>
