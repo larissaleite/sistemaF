@@ -1,6 +1,6 @@
-var app = angular.module('sysFinance', []);
+var app = angular.module('sysFinance', ['ui.bootstrap']);
 
-app.controller('addExpensesController', function($scope, storageService) {
+app.controller('addExpensesController', function($scope, $timeout, storageService) {
 	$scope.destArray = [
 		/*{name:'Subway'},
 		{name:'McDonalds'}	*/
@@ -27,8 +27,57 @@ app.controller('addExpensesController', function($scope, storageService) {
 		$scope.dest = $scope.destArray[$scope.destArray.length-1];
 	}
 
+	$scope.expensesArray = [];
 
-	expenses = [{date:'date', item:'itemName', amount:'amount', destination:'destination', source:'source'}, {...}];
+	$scope.submitExpense = function() {
+		var date = $scope.dt;
+		var item = $scope.itemName;
+		var amount = $scope.amount;
+		var destination = $scope.dest.name;
+		var source = $scope.expenseSource;
+
+		if (storageService.get("expensesArray") == null) {
+			var jsonArray = [{date:date, item:item, amount:amount, destination:destination, source:source}];
+		} else {
+			var jsonArray = {date:date, item:item, amount:amount, destination:destination, source:source};		
+		}
+
+		console.log(jsonArray);
+
+	}
+
+	$scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
+
+  $scope.showWeeks = false;
+  $scope.toggleWeeks = function () {
+    $scope.showWeeks = ! $scope.showWeeks;
+  };
+
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = ( $scope.minDate ) ? null : new Date();
+  };
+  $scope.toggleMin();
+
+$scope.open = function() {
+        $timeout(function() {
+$scope.opened = !$scope.opened;        });
+    };
+
+  $scope.dateOptions = {
+    'year-format': "'yy'",
+    'starting-day': 1
+  };
+
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'shortDate'];
+  $scope.format = $scope.formats[1];
+
 
 });
 
@@ -54,6 +103,7 @@ app.directive('selectPicker', function() {
         }, true);
     }
 });
+
 
 app.factory('storageService', function ($rootScope) {
 
