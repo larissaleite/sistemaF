@@ -25,7 +25,7 @@
     <!-- Additional CSS -->
     <link href="demo.css" rel="stylesheet" type="text/css">
 
-      <link rel="stylesheet" type="text/css" href="datePicker/css/datepicker3.css">
+   <!--   <link rel="stylesheet" type="text/css" href="datePicker/css/datepicker3.css">-->  
 
 
         <script src="js/jquery-1.10.2.js"></script>
@@ -33,9 +33,10 @@
          <!-- Bootstrap-select JS -->
     <script src="bootstrap-select.js"></script>
     <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
 <!--        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>-->
 
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 
     <!-- Main Javascript file -->
     <script src="demo.js"></script>
@@ -278,35 +279,37 @@
                         <!-- /.panel-heading -->
                             <div class="panel-body" id="panelBodyExpense">
                                 
-                                <div id="addExpenseForm" ng-controller="addExpensesController">
-                                    
-                                    <input class="datepicker form-control" id="addExpenseSelectDate" type="text" class="form-control" placeholder="Date">
-                                    <br>
-                                    <input type="text" class="form-control" id="whatExpense" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc.">
-                                    <br>   
-                                    <div class="input-group" id="testInfo">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default">R$</button>
+                                <form id="addExpenseForm" ng-controller="addExpensesController">
 
-                                     <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">$ (USD) <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                          <li><a href="#">R$ (BRL)</a></li>
-                                          <li class="divider"></li>
-                                          <li><a href="#">£ (GBP)</a></li>
-                                          <li class="divider"></li>
-                                          <li><a href="#">€ (EUR)</a></li>
-                                        </ul> -->
-                                      </div><!-- /btn-group -->
-                                      <input type="text" class="form-control" placeholder="How much?">
+                                    <!--<input class="datepicker form-control" type="text" class="form-control" placeholder="Date" ng-model="expenseDate" date-picker>
+                                    <br>-->
+
+                                    <p class="input-group">
+                                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                      <span class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                      </span>
+                                    </p>
+
+                                    <input type="text" class="form-control" placeholder="What did you spend on?" data-toggle="popover" data-placement="bottom" data-content="e.g. Running Trainers, Breaking Bad Season 5, Grocery Shopping, etc." ng-model="itemName">
+                                    <br>   
+                                    
+                                    <div class="input-group" id="testInfo">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default">R$</button>
+                                        </div><!-- /btn-group -->
+                                        <input type="text" class="form-control" placeholder="How much?" ng-model="amount">
                                     </div><!-- /input-group -->
                                     <br>
+
                                     <select select-picker class="selectpicker" ng-model="dest" style="margin-bottom:15px;width:60%;" ng-options="opt.name for opt in destArray">
                                         <option></option>
                                     </select>
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="display:inline;margin-left:2px;border-color:#fff;font-size:12px;"><span class="glyphicon glyphicon-plus"></span> Add item </button>
 
-                                    <br>                
-                                    <input type="text" class="form-control" placeholder="Where did the money come from?">
+                                    <br>
+
+                                    <input type="text" class="form-control" placeholder="Where did the money come from?" ng-model="expenseSource">
                                     <br>
 
                                     <div class="modal fade" id="myModal">
@@ -327,8 +330,8 @@
                                         </div><!-- /.modal-dialog -->
                                       </div><!-- /.modal -->
 
-                                    <a href="#" class="btn btn-default" style="width:100%;">Done!</a>
-                                </div> <!-- addExpenseForm -->    
+                                    <a href="#" class="btn btn-default" style="width:100%;" ng-click="submitExpense()">Done!</a>
+                                </form> <!-- addExpenseForm -->    
 
                             </div>
                             <!-- /.panel-body -->
@@ -464,7 +467,8 @@
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
 
-    <script src="datePicker/js/bootstrap-datepicker.js"></script>
+    <!--<script src="datePicker/js/bootstrap-datepicker.js"></script>-->
+
 
     <script type="text/javascript">
         $("#showHideExpense").click(function(){
@@ -511,7 +515,7 @@
 
         $('.selectpicker').selectpicker({});
 
-        $('.datepicker').datepicker({});
+        //$('.datepicker').datepicker({});
 
     </script>
 
